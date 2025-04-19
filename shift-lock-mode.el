@@ -1,16 +1,19 @@
 ;;; shift-lock-mode.el --- Caps Lock simulation with fringe indicator -*- lexical-binding: t; -*-
 
-;; Author: Your Name <your.email@example.com>
-;; Version: 0.1
+;; Author: Jüri Andrejev <jyriand@gmail.com>
+;; Version: 0.0.1
 ;; Package-Requires: ((emacs "26.1"))
 ;; Keywords: convenience, editing
-;; URL: https://github.com/yourname/shift-lock-mode
+;; URL: https://github.com/jyriand2/shift-lock-mode
 
 ;;; Commentary:
-
-;; shift-lock-mode simulates Caps Lock by converting input to uppercase.
+;; 
+;; Currently, shift-lock-mode only simulates Caps Lock by converting input to uppercase.
 ;; It also visually indicates its state by changing the fringe background color.
 ;; Fringe colors and keybindings are customizable.
+;; TODO: Emulate the full-on shift-lock functionality
+;; TODO: Add snake_case lock, where by typing space you will get _ instead
+;; TODO: Support multiple modes working at the same time
 
 ;;; Code:
 
@@ -63,7 +66,7 @@
 ;;;###autoload
 (define-minor-mode shift-lock-caps-mode
   "Toggle Caps Lock simulation with visual fringe indicator."
-  :lighter " CAPS"
+  :lighter "" ;; we already have a fringe, no need to pollute the modeline
   :global t
   :keymap shift-lock-caps-mode-map
   (if shift-lock-caps-mode
